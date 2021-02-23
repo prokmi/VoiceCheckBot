@@ -19,7 +19,7 @@ async def on_voice_state_update(member, before, after):
     if before.channel is None and after.channel is not None:
         members = await member.guild.fetch_members().flatten()
         for nomember in members:
-            if member.name == "Prokmi" and nomember.name == "Wolo":
+            if member.name == "Prokmi" and (nomember.name == "Wolo" or nomember.name == "Prokmi"):
                 if not nomember.dm_channel:
                     await nomember.create_dm()
                 await nomember.dm_channel.send(f"Prokmi se připojil na voice! "
